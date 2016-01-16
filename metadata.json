@@ -1,14 +1,15 @@
 {
-  "name": "ferrydg-packetbeat",
-  "version": "0.1.0",
+  "name": "ferrydg-filebeat",
+  "version": "0.5.0",
   "author": "ferrydg",
-  "summary": "Packetbeat is the open source data shipper that integrates with Elasticsearch and Kibana to provide real-time analytics for web, database, and other network protocols.",
+  "summary": "Filebeat is a lightweight, open source shipper for log file data",
   "license": "Apache-2.0",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
+  "source": "https://github.com/ferrydg/puppet-filebeat",
+  "project_page": "https://github.com/ferrydg/puppet-filebeat",
+  "issues_url": "https://github.com/ferrydg/puppet-filebeat/issues",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+    {"name":"ispavailability/file_concat","version_requirement":">= 0.3.0"}
   ],
   "data_provider": null
 }
