@@ -16,72 +16,8 @@ class filebeat::params {
 
     $status = 'enabled'
 
-    $device = 'any'
-
-    $sniffer = {
-        device => 'any',
-        snaplen => 1514,
-        type => 'pcap',
-        buffer_size_mb => 30
-    }
-
-    $protocols = {
-        dns => {
-            ports => [53],
-            send_request => false,
-            send_response => false,
-            include_authorities => false,
-            include_additionals => false,
-        },
-        http => {
-            ports => [80,8080,8000,5000,8002],
-            send_request => false,
-            send_response => false,
-            hide_keywords => [],
-            send_headers => [],
-        },
-        memcache => {
-            ports => [11211],
-            send_request => false,
-            send_response => false,
-            parseunknown => false,
-            maxvalues => 0,
-            maxbytespervalue => 'unlimited',
-            udptransactiontimeout => 200,
-        },
-        mysql => {
-            ports => [3306],
-            send_request => false,
-            send_response => false,
-        },
-        pgsql => {
-            ports => [5432],
-            send_request => false,
-            send_response => false,
-        },
-        redis => {
-            ports => [6379],
-            send_request => false,
-            send_response => false,
-        },
-        thrift => {
-            ports => [9090],
-            send_request => false,
-            send_response => false,
-        },
-        mongodb => {
-            ports => [27017],
-            send_request => false,
-            send_response => false,
-        }
-    }
-
-    $procs = {
-        mysqld => 'mysqld',
-        pgsql => 'postgres',
-        nginx => 'nginx'
-    }
-
+    $default_document_type = 'log'
+    
     $output = {
         elasticsearch => {
             enabled => false
