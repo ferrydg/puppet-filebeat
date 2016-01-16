@@ -6,26 +6,6 @@ class filebeat::config (
     	notify => Service['filebeat']
     }
 
-    $sniffer_conf = deep_merge($filebeat::params::sniffer, $filebeat::sniffer)
-
-    concat::fragment { 'sniffer':
-        target => $filebeat::configfile,
-        order => 10,
-        content => template('filebeat/config/10_sniffer.erb'),
-    }
-
-    concat::fragment { 'protocols_header':
-        target => $filebeat::configfile,
-        order => 20,
-        content => template('filebeat/config/20_protocols_header.erb'),
-    }
-
-    concat::fragment { 'procs_header':
-        target => $filebeat::configfile,
-        order => 30,
-        content => template('filebeat/config/30_procs_header.erb'),
-    }
-
     $output_conf = deep_merge($filebeat::params::output, $filebeat::output)
 
     concat::fragment { 'output':
