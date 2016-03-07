@@ -4,8 +4,8 @@
       # /var/log/*/*.log can be used.
       # For each file found under this path, a harvester is started.
       # Make sure not file is defined twice as this can lead to unexpected behaviour.
-      paths:<% paths.each do |path| %>
-        - <%= path %><% end %>
+      paths:<% @paths.each do |@path| %>
+        - <%= @path %><% end %>
 
       # Configure the file encoding for reading files with international characters
       # following the W3C recommendation for HTML5 (http://www.w3.org/TR/encoding).
@@ -41,7 +41,7 @@
       # Type to be published in the 'type' field. For Elasticsearch output,
       # the type defines the document type these entries should be stored
       # in. Default: log
-      document_type: <%= doctype %>
+      document_type: <%= @doctype %>
 
       # Scan frequency in seconds.
       # How often these files should be checked for changes. In case it is set
@@ -51,6 +51,31 @@
       # Defines the buffer size every harvester uses when fetching the file
       #harvester_buffer_size: 16384
 
+      # Mutiline can be used for log messages spanning multiple lines. This is common
+      # for Java Stack Traces or C-Line Continuation
+      <% if @multiline %>
+      multiline:
+        <% if @multiline['pattern'] %>
+        # The regexp Pattern that has to be matched. The example pattern matches all lines starting with [
+        pattern: <%= @multiline['pattern'] %><% end %>
+        <% if @multiline['negate'] %>
+        # Defines if the pattern set under pattern should be negated or not. Default is false.
+        negate: <%= @multiline['negate'] %><% end %>
+        <% if @multiline['match'] %>
+        # Match can be set to "after" or "before". It is used to define if lines should be append to a pattern
+        # that was (not) matched before or after or as long as a pattern is not matched based on negate.
+        # Note: After is the equivalent to previous and before is the equivalent to to next in Logstash
+        match: <%= @multiline['match'] %><% end %>
+        <% if @multiline['max_lines'] %>
+        # The maximum number of lines that are combined to one event.
+        # In case there are more the max_lines the additional lines are discarded.
+        # Default is 500
+        max_lines: <%= @multiline['max_lines'] %><% end %>
+        <% if @multiline['timeout'] %>
+        # After the defined timeout, an multiline event is sent even if no new pattern was found to start a new event
+        # Default is 5s.
+        timeout: <%= @multiline['timeout'] %><% end %>
+      <% end %>
       # Setting tail_files to true means filebeat starts readding new files at the end
       # instead of the beginning. If this is used in combination with log rotation
       # this can mean that the first entries of a new file are skipped.

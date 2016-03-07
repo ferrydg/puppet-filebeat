@@ -1,7 +1,8 @@
 #
 define filebeat::prospector (
     $paths = [],
-    $doctype = $filebeat::params::default_document_type
+    $doctype = $filebeat::params::default_document_type,
+    $multiline = undef
 ) {
     concat::fragment { "filebeat_prospector_$name":
         target => $filebeat::configfile,
