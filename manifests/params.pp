@@ -10,7 +10,7 @@
 # This class is not intended to be used directly.
 class filebeat::params {
 
-    $configfile = '/etc/filebeat/temp-filebeat.yml'
+    $configfile = '/etc/filebeat/filebeat.yml'
 
     $ensure = 'present'
 
