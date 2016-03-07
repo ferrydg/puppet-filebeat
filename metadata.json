@@ -1,6 +1,6 @@
 {
   "name": "ferrydg-filebeat",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "author": "ferrydg",
   "summary": "Filebeat is a lightweight, open source shipper for log file data",
   "license": "Apache-2.0",
@@ -8,7 +8,6 @@
   "project_page": "https://github.com/ferrydg/puppet-filebeat",
   "issues_url": "https://github.com/ferrydg/puppet-filebeat/issues",
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
     {"name":"ispavailability/file_concat","version_requirement":">= 0.3.0"}
   ],
   "data_provider": null
