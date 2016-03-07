@@ -1,6 +1,6 @@
 {
   "name": "ferrydg-filebeat",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "author": "ferrydg",
   "summary": "Filebeat is a lightweight, open source shipper for log file data",
   "license": "Apache-2.0",
