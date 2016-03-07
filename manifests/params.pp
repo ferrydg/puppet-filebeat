@@ -28,15 +28,15 @@ class filebeat::params {
             worker => 1,
             loadbalance => false,
             port => 10200,
-            index => 'packetbeat',
+            index => 'filebeat',
             tls => {},
             timeout => 30,
             max_retries => 3
         },
         file => {
             enabled => false,
-            path => '/tmp/packetbeat',
-            filename => 'packetbeat',
+            path => '/tmp/filebeat',
+            filename => 'filebeat',
             rotate_every_kb => 10000,
             number_of_files => 7
         }
