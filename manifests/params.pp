@@ -17,6 +17,8 @@ class filebeat::params {
     $status = 'enabled'
 
     $default_document_type = 'log'
+
+    $default_fields_under_root = 'false'
     
     $output = {
         elasticsearch => {
