@@ -4,7 +4,7 @@
       # /var/log/*/*.log can be used.
       # For each file found under this path, a harvester is started.
       # Make sure not file is defined twice as this can lead to unexpected behaviour.
-      paths:<% [@paths].each do |path| %>
+      paths:<% [@paths].flatten.each do |path| %>
         - <%= path %>
       <% end -%>
 
