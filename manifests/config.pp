@@ -1,6 +1,6 @@
 #
 class filebeat::config (
-){
+) {
 
     concat { $::filebeat::configfile:
       notify => Service['filebeat']

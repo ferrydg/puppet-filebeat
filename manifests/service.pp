@@ -1,8 +1,8 @@
 #
 class filebeat::service (
   $ensure = $::filebeat::ensure
-){
-  
+) {
+
   $_ensure = $::filebeat::ensure ? {
     present => 'running',
     absent  => 'stopped',
@@ -13,5 +13,5 @@ class filebeat::service (
     enable => true,
     ensure => $_ensure
   }
-  
+
 }
