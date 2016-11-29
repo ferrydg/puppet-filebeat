@@ -1,6 +1,6 @@
 #
 class filebeat::package (
-  $ensure = $filebeat::ensure
+  $ensure = $::filebeat::ensure
 ) {
 
   package { 'filebeat':

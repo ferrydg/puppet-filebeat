@@ -2,7 +2,7 @@
 class filebeat::config (
 ){
 
-    concat { $filebeat::configfile:
+    concat { $::filebeat::configfile:
       notify => Service['filebeat']
     }
 
@@ -24,23 +24,23 @@ class filebeat::config (
         content => template('filebeat/config/30_prospectors_header.erb'),
     }
 
-    $output_conf = deep_merge($filebeat::params::output, $filebeat::output)
+    $output_conf = deep_merge($::filebeat::params::output, $::filebeat::output)
 
     concat::fragment { 'filebeat_output':
-        target  => $filebeat::configfile,
+        target  => $::filebeat::configfile,
         order   => 40,
         content => template('filebeat/config/40_output.erb'),
     }
 
-    $shipper_conf = deep_merge($filebeat::params::shipper, $filebeat::shipper)
+    $shipper_conf = deep_merge($::filebeat::params::shipper, $::filebeat::shipper)
 
     concat::fragment { 'filebeat_shipper':
-        target  => $filebeat::configfile,
+        target  => $::filebeat::configfile,
         order   => 50,
         content => template('filebeat/config/50_shipper.erb'),
     }
 
-    $logging_conf = deep_merge($filebeat::params::logging, $filebeat::logging)
+    $logging_conf = deep_merge($::filebeat::params::logging, $::filebeat::logging)
 
     concat::fragment { 'filebeat_logging':
         target  => $filebeat::configfile,

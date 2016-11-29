@@ -43,10 +43,10 @@
 # Copyright 2016 Your name here, unless otherwise noted.
 #
 class filebeat (
-    $ensure = $filebeat::params::ensure,
-    $status = $filebeat::params::status,
+    $ensure = $::filebeat::params::ensure,
+    $status = $::filebeat::params::status,
     $manage_repo = false,
-    $configfile = $filebeat::params::configfile,
+    $configfile = $::filebeat::params::configfile,
     $sniffer = {},
     $output = {},
     $shipper = {},
