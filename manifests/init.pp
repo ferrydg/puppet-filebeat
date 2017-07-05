@@ -47,6 +47,7 @@ class filebeat (
     $status = $::filebeat::params::status,
     $manage_repo = false,
     $configfile = $::filebeat::params::configfile,
+    $major_version = $::filebeat::params::major_version,
     $sniffer = {},
     $output = {},
     $shipper = {},

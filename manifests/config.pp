@@ -34,10 +34,18 @@ class filebeat::config (
 
     $shipper_conf = deep_merge($::filebeat::params::shipper, $::filebeat::shipper)
 
-    concat::fragment { 'filebeat_shipper':
-        target  => $::filebeat::configfile,
-        order   => 50,
-        content => template('filebeat/config/50_shipper.erb'),
+    if ($::filebeat::major_version == 5) {
+      concat::fragment { 'filebeat_shipper':
+          target  => $::filebeat::configfile,
+          order   => 50,
+          content => template('filebeat/config/50_shipper_v5.erb'),
+      }
+    } else {
+      concat::fragment { 'filebeat_shipper':
+          target  => $::filebeat::configfile,
+          order   => 50,
+          content => template('filebeat/config/50_shipper.erb'),
+      }
     }
 
     $logging_conf = deep_merge($::filebeat::params::logging, $::filebeat::logging)
