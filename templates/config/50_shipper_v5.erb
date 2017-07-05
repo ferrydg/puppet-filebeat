@@ -1,0 +1,6 @@
+############################# Shipper #########################################
+name: <%= @shipper_conf['name'] %>
+tags: <% if (!@shipper_conf['tags'].any?) %>[]<% else %>['<%= @shipper_conf['tags'].join("','") %>']<% end %>
+ignore_outgoing: <%= @shipper_conf['ignore_outgoing'] %>
+refresh_topology_freq: <%= @shipper_conf['refresh_topology_freq'] %>
+topology_expire: <%= @shipper_conf['topology_expire'] %>

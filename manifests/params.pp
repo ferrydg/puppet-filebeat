@@ -3,12 +3,13 @@
 # === Parameters
 #
 # This class does not provide any parameters.
-
 #
 # === Examples
 #
 # This class is not intended to be used directly.
 class filebeat::params {
+
+    $major_version = 1
 
     $configfile = '/etc/filebeat/filebeat.yml'
 
@@ -19,7 +20,7 @@ class filebeat::params {
     $default_document_type = 'log'
 
     $default_fields_under_root = false
-    
+
     $output = {
         elasticsearch => {
             enabled => false
